@@ -1,0 +1,102 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 90%;
+  max-width: 500px;
+  margin: 50px auto;
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-control {
+  margin-bottom: 15px;
+}
+
+.form-control label {
+  margin-bottom: 5px;
+  display: block;
+}
+
+.form-control input {
+  padding: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.btn {
+  padding: 10px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.btn.logout {
+  background: #dc3545;
+}
+
+.btn.small {
+  padding: 5px 10px;
+  margin-left: 5px;
+  font-size: 0.9em;
+}
+
+.btn.delete {
+  background: #dc3545;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.error {
+  color: #dc3545;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.task-list {
+  list-style: none;
+  padding: 0;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px #ccc solid;
+}
+
+.task-item.completed span {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.task-item input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.task-item .actions {
+  margin-left: auto;
+}
+
+.edit-input {
+  flex: 1;
+  padding: 5px;
+  margin-right: 10px;
+}

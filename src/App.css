@@ -1,0 +1,211 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+}
+
+.container {
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form div {
+  margin-bottom: 15px;
+}
+
+label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+button.logout {
+  background-color: #f44336;
+}
+
+button.logout:hover {
+  background-color: #e60000;
+}
+
+.tasks {
+  list-style-type: none;
+  padding: 0;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 15px;
+  background-color: #f9f9f9;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.task-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.task-item.completed {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+.task-actions button {
+  margin-left: 10px;
+}
+
+.edit-task {
+  width: 100%;
+  padding: 5px;
+}
+
+.task-title {
+  flex-grow: 1;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logout {
+  background-color: #ff4b5c;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.logout:hover {
+  background-color: #d43f48;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  color: white;
+}
+
+button.add-task {
+  background-color: #4caf50;
+  margin: 10px;
+}
+
+button.add-task:hover {
+  background-color: #45a049;
+}
+
+button.logout {
+  background-color: #f44336;
+}
+
+button.logout:hover {
+  background-color: #e60000;
+}
+
+button.complete {
+  background-color: #2196f3;
+}
+
+button.complete:hover {
+  background-color: #1976d2;
+}
+
+button.edit {
+  background-color: #ff9800;
+}
+
+button.edit:hover {
+  background-color: #fb8c00;
+}
+
+button.save {
+  background-color: #4caf50;
+}
+
+button.save:hover {
+  background-color: #45a049;
+}
+
+button.delete {
+  background-color: #f44336;
+}
+
+button.delete:hover {
+  background-color: #e60000;
+}
+
+.filter-button {
+  padding: 10px 20px;
+  margin-right: 5px;
+  border: none;
+  cursor: pointer;
+  background-color: lightgray;
+  color: black;
+  border-radius: 5px;
+}
+
+.filter-button:hover {
+  opacity: 0.8;
+}
+
+.active-all {
+  background-color: blue;
+  color: white;
+}
+
+.active-completed {
+  background-color: green;
+  color: white;
+}
+
+.active-incomplete {
+  background-color: red;
+  color: white;
+}
