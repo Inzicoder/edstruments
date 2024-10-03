@@ -151,32 +151,34 @@ const TaskManager = () => {
           </div>
         </div>
         <div>
-          <div className="filter-buttons">
-            <button
-              className={`filter-button ${
-                filter === "all" ? "active-all" : ""
-              }`}
-              onClick={() => setFilter("all")}
-            >
-              All
-            </button>
-            <button
-              className={`filter-button ${
-                filter === "completed" ? "active-completed" : ""
-              }`}
-              onClick={() => setFilter("completed")}
-            >
-              Completed
-            </button>
-            <button
-              className={`filter-button ${
-                filter === "incomplete" ? "active-incomplete" : ""
-              }`}
-              onClick={() => setFilter("incomplete")}
-            >
-              Incomplete
-            </button>
-          </div>
+          {tasks.length > 0 && (
+            <div className="filter-buttons">
+              <button
+                className={`filter-button ${
+                  filter === "all" ? "active-all" : ""
+                }`}
+                onClick={() => setFilter("all")}
+              >
+                All
+              </button>
+              <button
+                className={`filter-button ${
+                  filter === "completed" ? "active-completed" : ""
+                }`}
+                onClick={() => setFilter("completed")}
+              >
+                Completed
+              </button>
+              <button
+                className={`filter-button ${
+                  filter === "incomplete" ? "active-incomplete" : ""
+                }`}
+                onClick={() => setFilter("incomplete")}
+              >
+                Incomplete
+              </button>
+            </div>
+          )}
 
           <ul className="tasks">{memoizedTaskList}</ul>
         </div>
