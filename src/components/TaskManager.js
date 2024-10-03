@@ -4,16 +4,15 @@ import "../App.css";
 
 const TaskManager = () => {
   const [newTask, setNewTask] = useState("");
-  const [errorMessage, setErrorMessage] = useState(""); // Error message state
+  const [errorMessage, setErrorMessage] = useState("");
   const { tasks, saveTasks, user, logoutUser } = useContext(AuthContext);
   const [editingTask, setEditingTask] = useState(null);
   const [editedTaskTitle, setEditedTaskTitle] = useState("");
-
-  const [filter, setFilter] = useState("all"); // State to handle task filters
+  const [filter, setFilter] = useState("all");
 
   const handleAddTask = useCallback(() => {
     if (newTask.trim() === "") {
-      setErrorMessage("Task cannot be empty"); // Set error for empty task
+      setErrorMessage("Task cannot be empty");
       return;
     }
     const updatedTasks = [
@@ -129,54 +128,59 @@ const TaskManager = () => {
 
   return (
     <div className="container">
-      <div className="header">
-        <h2>Task Management</h2>
-        <button className="logout" onClick={logoutUser}>
-          Logout
-        </button>
-      </div>
+      <div className="task-container">
+        <div className="card">
+          <button className="logout-button" onClick={logoutUser}>
+            Logout
+          </button>
+          <div className="header">
+            <h2 className="header-tag">Task Manager</h2>
+          </div>
 
-      <div>
-        <input
-          type="text"
-          value={newTask}
-          onChange={(e) => setNewTask(e.target.value)}
-          placeholder="Add a new task"
-        />
-        {errorMessage && <p className="error">{errorMessage}</p>}
-        <button className="add-task" onClick={handleAddTask}>
-          Add Task
-        </button>
-      </div>
+          <div>
+            <input
+              type="text"
+              value={newTask}
+              onChange={(e) => setNewTask(e.target.value)}
+              placeholder="Add a new task"
+            />
+            {errorMessage && <p className="error">{errorMessage}</p>}
+            <button className="add-task" onClick={handleAddTask}>
+              Add Task
+            </button>
+          </div>
+        </div>
+        <div>
+          <div className="filter-buttons">
+            <button
+              className={`filter-button ${
+                filter === "all" ? "active-all" : ""
+              }`}
+              onClick={() => setFilter("all")}
+            >
+              All
+            </button>
+            <button
+              className={`filter-button ${
+                filter === "completed" ? "active-completed" : ""
+              }`}
+              onClick={() => setFilter("completed")}
+            >
+              Completed
+            </button>
+            <button
+              className={`filter-button ${
+                filter === "incomplete" ? "active-incomplete" : ""
+              }`}
+              onClick={() => setFilter("incomplete")}
+            >
+              Incomplete
+            </button>
+          </div>
 
-      {/* Filter Buttons */}
-      {/* Filter Buttons */}
-      <div className="filter-buttons">
-        <button
-          className={`filter-button ${filter === "all" ? "active-all" : ""}`}
-          onClick={() => setFilter("all")}
-        >
-          All
-        </button>
-        <button
-          className={`filter-button ${
-            filter === "completed" ? "active-completed" : ""
-          }`}
-          onClick={() => setFilter("completed")}
-        >
-          Completed
-        </button>
-        <button
-          className={`filter-button ${
-            filter === "incomplete" ? "active-incomplete" : ""
-          }`}
-          onClick={() => setFilter("incomplete")}
-        >
-          Incomplete
-        </button>
+          <ul className="tasks">{memoizedTaskList}</ul>
+        </div>
       </div>
-
-      <ul className="tasks">{memoizedTaskList}</ul>
     </div>
   );
 };
