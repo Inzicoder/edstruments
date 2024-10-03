@@ -27,28 +27,30 @@ export const AuthProvider = ({ children }) => {
     localStorage.setItem(`tasks_${username}`, JSON.stringify(newTasks));
   };
 
-  const registerUser = (username, email, password) => {
+  const registerUser = (username, password) => {
     const users = JSON.parse(localStorage.getItem("users")) || {};
-
     if (users[username]) {
       return { success: false, message: "User already exists!" };
     }
+    users[username] = password;
 
-    users[username] = { email, password };
     localStorage.setItem("users", JSON.stringify(users));
-
     return { success: true };
   };
 
   const loginUser = (username, password) => {
     const users = JSON.parse(localStorage.getItem("users")) || {};
 
-    if (users[username] && users[username] === password) {
-      setUser(username);
-      localStorage.setItem("user", username);
-      loadTasks(username);
+    const trimmedUsername = username.trim();
+    const trimmedPassword = password.trim();
+
+    if (users[trimmedUsername] && users[trimmedUsername] === trimmedPassword) {
+      setUser(trimmedUsername);
+      localStorage.setItem("user", trimmedUsername);
+      loadTasks(trimmedUsername);
       return { success: true };
     }
+
     return { success: false, message: "Invalid credentials!" };
   };
 

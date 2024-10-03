@@ -5,7 +5,6 @@ import "../App.css"; // Import CSS styles
 
 const RegistrationForm = () => {
   const [username, setUsername] = useState("");
-  const [email, setEmail] = useState(""); // New email field
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState(""); // New confirm password field
   const { registerUser } = useContext(AuthContext);
@@ -14,16 +13,8 @@ const RegistrationForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Simple email validation using regex
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if (!username || !email || !password || !confirmPassword) {
+    if (!username || !password || !confirmPassword) {
       alert("Please fill in all fields");
-      return;
-    }
-
-    if (!emailRegex.test(email)) {
-      alert("Please enter a valid email address");
       return;
     }
 
@@ -32,7 +23,7 @@ const RegistrationForm = () => {
       return;
     }
 
-    const result = registerUser(username, email, password); // Added email field
+    const result = registerUser(username, password);
     if (result.success) {
       alert("Registration successful! Please log in.");
       navigate("/");
@@ -55,15 +46,7 @@ const RegistrationForm = () => {
               required
             />
           </div>
-          <div>
-            <label>Email</label>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </div>
+
           <div>
             <label>Password</label>
             <input
